@@ -11,8 +11,8 @@ import Nylas from "nylas";
 // Controllers (route handlers)
 import router from "./controllers/base";
 
-const NylasClientID = process.env["NYLAS_OAUTH_CLIENT_ID"];
-const NylasClientSecret = process.env["NYLAS_OAUTH_CLIENT_SECRET"];
+const NylasClientID = process.env.NYLAS_CLIENT_ID;
+const NylasClientSecret = process.env.NYLAS_CLIENT_SECRET;
 
 if (!NylasClientID || !NylasClientSecret) {
   console.warn(`
@@ -24,8 +24,8 @@ if (!NylasClientID || !NylasClientSecret) {
 
 // Configure Nylas
 Nylas.config({
-  appId: NylasClientID,
-  appSecret: NylasClientSecret
+  clientId: NylasClientID,
+  clientSecret: NylasClientSecret
 });
 
 // Create Express server
